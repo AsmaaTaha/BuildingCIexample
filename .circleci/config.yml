@@ -52,7 +52,6 @@ workflows:
     jobs:
       - Print-hello
       - Print-World:
-         type: approval
          requires:
             - Print-hello
 
