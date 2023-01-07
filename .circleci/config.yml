@@ -19,7 +19,6 @@ jobs:
       - run: echo world
 
   print_myname:
-    build:
     docker:
       - image: cimg/base:2020.01
     steps:
@@ -33,4 +32,4 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - build
+      - print_myname
