@@ -11,18 +11,23 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo hello
+
   print_world:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run: echo world
+
+  print_myname:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo $Asmaa
+
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
       - welcome/run
-      - print_hello
-      - print_world:
-          requires:
-            - print_hello
+      - print_myname
