@@ -19,15 +19,18 @@ jobs:
       - run: echo world
 
   print_myname:
+    build:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/base:2020.01
     steps:
-      - run: echo $Asmaa
-
+      - checkout
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $Asmaa
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
-      - print_myname
+      - build
